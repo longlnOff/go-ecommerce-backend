@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+databases:
+  - user: admin
+    password: admin
+    host: localhost
+    port: 5432
+    name: postgres
+
+  - user: order
+    password: order
+    host: localhost
+    port: 5432
+    name: order
+
+security:
+  jwt:
+    key: abc123
+
+redis:
+  user: admin
+
+elasticsearch:
+  user: admin
+
+radbbitMQ:
+  user: admin
+
+Kafka:
+  user: admin
