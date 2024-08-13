@@ -1,10 +1,9 @@
 package controller
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 	"github.com/longln/go-ecommerce-backend/internal/service"
+	"github.com/longln/go-ecommerce-backend/pkg/response"
 )
 
 
@@ -19,7 +18,10 @@ func NewUserController() *UserController {
 }
 
 func (uc *UserController) GetUserByID(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": uc.userService.GetInforUserService(),
-	})
+	// if err != nil {
+		// return response.ErrorResponse(c, response.ErrCodeParamInvalid)
+	// }
+	// return response.SuccessResponse(c, response.ErrCodeSuccess, []string{"longln", "hello"})
 }
+
+// Note: gin.H is a map string
