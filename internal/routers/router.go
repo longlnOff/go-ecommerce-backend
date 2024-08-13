@@ -1,9 +1,8 @@
 package routers
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/longln/go-ecommerce-backend/internal/controller"
 )
 
 func NewRouter() *gin.Engine {
@@ -11,10 +10,8 @@ func NewRouter() *gin.Engine {
 
 	v1 := r.Group("/v1/2024")
 	{
-	  v1.GET("/ping", pong)	// --> /v1/2024/ping
-	  v1.GET("/ping1", pong)
-	  v1.GET("/ping2", pong)
-	
+	  v1.GET("/ping", controller.NewPongController().Pong)	// --> /v1/2024/ping
+	  v1.GET("/user", controller.NewUserController().GetUserByID)
 	}
 
 	return r
@@ -22,12 +19,3 @@ func NewRouter() *gin.Engine {
 
 
 
-func pong (c *gin.Context) {
-  name := c.DefaultQuery("name", "longln")
-  uid := c.Query("uid")
-  c.JSON(http.StatusOK, gin.H{
-	"message": "pong",
-	"name": name,
-	"uid": uid,
-  })
-}
