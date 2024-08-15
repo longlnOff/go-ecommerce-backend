@@ -1,6 +1,8 @@
 package controller
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/longln/go-ecommerce-backend/internal/service"
 	"github.com/longln/go-ecommerce-backend/pkg/response"
@@ -18,6 +20,7 @@ func NewUserController() *UserController {
 
 func (uc *UserController) GetUserByID(c *gin.Context) {
 	// if err != nil {
+	fmt.Println("---> My Handler")
 	response.ErrorResponse(c, response.ErrCodeParamInvalid)
 	// }
 	// return response.SuccessResponse(c, response.ErrCodeSuccess, []string{"longln", "hello"})

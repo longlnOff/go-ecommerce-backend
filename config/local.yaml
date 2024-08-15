@@ -1,31 +1,27 @@
 server:
   port: 8080
+  mode: dev
 
-databases:
-  - user: admin
-    password: admin
-    host: localhost
-    port: 5432
-    name: postgres
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: root1234
+  dbname: shopdevgo
+  maxIdleConns: 10  # so luong ket noi toi da trong pool connection
+  maxOpenConns: 10 # so luong ket noi mo toi da trong pool connection, nen kiem soat cai nay, khong de mac dinh
+  connMaxLifeTime: 3600 # vong doi toi da cua 1 connection
 
-  - user: order
-    password: order
-    host: localhost
-    port: 5432
-    name: order
-
-security:
-  jwt:
-    key: abc123
+logger:
+  logLevel: debug
+  fileLogName: "./storages/logs/dev.001.txt"
+  maxSize: 500
+  maxBackups: 3
+  maxAge: 28
+  compress: true
 
 redis:
-  user: admin
-
-elasticsearch:
-  user: admin
-
-radbbitMQ:
-  user: admin
-
-Kafka:
-  user: admin
+  host: 127.0.0.1
+  port: 6379
+  password:
+  database: 0
