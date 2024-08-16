@@ -18,7 +18,7 @@ func InitRouter() *gin.Engine {
 		r = gin.New()	// don't write log
 	}
 
-	// moddlewares
+	// middlewares
 	r.Use()	// logger
 	r.Use()	// cross
 	r.Use()	// limiter global

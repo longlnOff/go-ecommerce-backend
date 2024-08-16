@@ -32,3 +32,11 @@
 {"level":"INFO","time":"2024-08-15T17:18:19.009+0700","caller":"initialize/mysql.go:30","msg":"connect database ok"}
 {"level":"INFO","time":"2024-08-15T17:18:37.711+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
 {"level":"INFO","time":"2024-08-15T17:18:37.712+0700","caller":"initialize/mysql.go:30","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T09:41:36.752+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T09:41:36.783+0700","caller":"initialize/mysql.go:30","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T09:41:45.955+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T09:41:45.957+0700","caller":"initialize/mysql.go:30","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T09:42:04.911+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T09:42:04.912+0700","caller":"initialize/mysql.go:30","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T09:42:13.422+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T09:42:13.424+0700","caller":"initialize/mysql.go:30","msg":"connect database ok"}
