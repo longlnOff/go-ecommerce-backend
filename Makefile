@@ -19,4 +19,8 @@ start_redis:
 stop_redis:
 	docker stop redis-stack-server
 
+dump_db:
+	docker exec -it mysqlgo8 mysqldump -uroot -proot1234 --databases shopdevgo --add-drop-database --add-drop-table --add-drop-trigger --add-locks --no-data > migration/shopdevgo.sql
+
 .PHONY: run mysql_docker start_mysql stop_mysql redis_docker start_redis stop_redis
+.PHONY: dump_db

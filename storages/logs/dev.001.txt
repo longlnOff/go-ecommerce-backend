@@ -40,3 +40,26 @@
 {"level":"INFO","time":"2024-08-16T09:42:04.912+0700","caller":"initialize/mysql.go:30","msg":"connect database ok"}
 {"level":"INFO","time":"2024-08-16T09:42:13.422+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
 {"level":"INFO","time":"2024-08-16T09:42:13.424+0700","caller":"initialize/mysql.go:30","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T15:54:59.354+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"ERROR","time":"2024-08-16T15:54:59.355+0700","caller":"initialize/mysql.go:17","msg":"failed to connect database","error":"dial tcp 127.0.0.1:3306: connect: connection refused","stacktrace":"github.com/longln/go-ecommerce-backend/internal/initialize.checkErrorPanic\n\t/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/internal/initialize/mysql.go:17\ngithub.com/longln/go-ecommerce-backend/internal/initialize.InitMysql\n\t/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/internal/initialize/mysql.go:30\ngithub.com/longln/go-ecommerce-backend/internal/initialize.Run\n\t/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/internal/initialize/run.go:20\nmain.main\n\t/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/cmd/server/main.go:6\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:271"}
+{"level":"INFO","time":"2024-08-16T15:55:23.066+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T15:55:23.075+0700","caller":"initialize/mysql.go:31","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T15:55:56.771+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T15:55:56.774+0700","caller":"initialize/mysql.go:31","msg":"connect database ok"}
+{"level":"ERROR","time":"2024-08-16T15:55:56.895+0700","caller":"initialize/redis.go:26","msg":"redis connect error","error":"dial tcp 127.0.0.1:6379: connect: connection refused","stacktrace":"github.com/longln/go-ecommerce-backend/internal/initialize.InitRedis\n\t/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/internal/initialize/redis.go:26\ngithub.com/longln/go-ecommerce-backend/internal/initialize.Run\n\t/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/internal/initialize/run.go:23\nmain.main\n\t/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/cmd/server/main.go:6\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:271"}
+{"level":"INFO","time":"2024-08-16T15:56:20.186+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T15:56:20.187+0700","caller":"initialize/mysql.go:31","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T16:00:11.492+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T16:00:11.493+0700","caller":"initialize/mysql.go:31","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T16:01:32.056+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T16:01:32.058+0700","caller":"initialize/mysql.go:31","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T16:02:20.930+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T16:02:20.931+0700","caller":"initialize/mysql.go:31","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T16:02:36.547+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T16:02:36.549+0700","caller":"initialize/mysql.go:31","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T16:08:11.108+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T16:08:11.109+0700","caller":"initialize/mysql.go:31","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T16:13:51.493+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T16:13:51.495+0700","caller":"initialize/mysql.go:32","msg":"connect database ok"}
+{"level":"INFO","time":"2024-08-16T16:15:13.793+0700","caller":"initialize/run.go:17","msg":"Config Log ok!!","ok":"success"}
+{"level":"INFO","time":"2024-08-16T16:15:13.795+0700","caller":"initialize/mysql.go:32","msg":"connect database ok"}

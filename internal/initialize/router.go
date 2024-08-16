@@ -35,7 +35,7 @@ func InitRouter() *gin.Engine {
 		userRouter.InitProductRouter(MainGroup)
 	}
 	{
-		managerRouter.InitUserRouter(MainGroup)
+		// managerRouter.InitUserRouter(MainGroup)
 		managerRouter.InitAdminRouter(MainGroup)
 	}
 
