@@ -2,18 +2,19 @@ package user
 
 import "github.com/gin-gonic/gin"
 
-type ProductRouter struct{
 
-}
+type ProductRouter struct {}
+
+
 
 func (pr *ProductRouter) InitProductRouter(r *gin.RouterGroup) {
-	// public router
+	// public
 	productRouterPublic := r.Group("/product")
 	{
 		productRouterPublic.GET("/search")
 		productRouterPublic.GET("/detail/:id")
 	}
 
-	// private router
-	
+
+	// private
 }

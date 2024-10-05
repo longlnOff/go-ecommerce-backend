@@ -1,28 +1,16 @@
 package initialize
 
-import (
-	"fmt"
-
-	"github.com/longln/go-ecommerce-backend/global"
-	"go.uber.org/zap"
-)
 
 func Run() {
-	// Load config
+	// 1. Load config
 	LoadConfig()
-	fmt.Println("Config: ", global.Config)
-
-	// Load logger
+	// 2. Init logger
 	InitLogger()
-	global.Logger.Info("Config Log ok!!", zap.String("ok", "success"))
-
-	// Init mysql
-	InitMysql()
-
-	// Init redis
+	// 3. Connect DB
+	InitMySQL()
+	// 4. Connect Redis
 	InitRedis()
-
-	// Init router
+	// 5. Connect Router
 	r := InitRouter()
-	r.Run("0.0.0.0:8080")
+	r.Run()
 }

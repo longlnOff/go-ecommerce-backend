@@ -1,57 +1,38 @@
 package main
 
-import (
-	"fmt"
+// import (
+// 	"fmt"
 
-	"github.com/spf13/viper"
-)
+// 	"github.com/spf13/viper"
+// )
 
-type Config struct {
-	Sever struct {
-		Port int `mapstructure:"port"`
-	} `mapstructure:"server"`
 
-	Databases []struct {
-		User string `mapstructure:"user"`
-		Password string `mapstructure:"password"`
-		Host string `mapstructure:"host"`
-		Port int `mapstructure:"port"`
-		Name string `mapstructure:"name"`
-	}
 
-	SecurityJWT struct {
-		JWT struct {
-			Key string `mapstructure:"key"`
-		} `mapstructure:"jwt"`
-	} `mapstructure:"security"`
-}
+// func main() {
+// 	viper := viper.New()
 
-func main() {
-	viper := viper.New()
-	viper.AddConfigPath("config/")	// path to config
-	viper.SetConfigName("local")			// file name
-	viper.SetConfigType("yaml")
+// 	// set config path
+// 	viper.AddConfigPath("config")
+// 	// set config file name
+// 	viper.SetConfigName("local")
+// 	// set config file type
+// 	viper.SetConfigType("yaml")
 
-	// read configuration
-	err := viper.ReadInConfig()
-	if err != nil {
-		panic(fmt.Errorf("failed to read configuration file %w", err))
-	}
+// 	// Find and read config file (must do)
+// 	err := viper.ReadInConfig()
+// 	if err != nil {
+// 		panic("Can't find config file")
+// 	}
+	
+// 	// read config
+// 	if err := viper.Unmarshal(&config); err != nil {
+// 		fmt.Printf("Unable to decode configuration %v", err)
+// 	}
 
-	// read port
-	fmt.Println("Server Port: ", viper.GetInt("server.port"))
-	fmt.Println("Server Security: ", viper.GetString("security.jwt.key"))
+// 	// read server configuration
+// 	fmt.Println("Config Port::", config.Server.Port)
 
-	var config Config
-	if err := viper.Unmarshal(&config); err != nil {
-		panic(fmt.Errorf("failed to read configuration file %w", err))
-	}
-
-	fmt.Println(config)
-	fmt.Println("Config port: ", config.Sever.Port)
-	fmt.Println("Config Security: ", config.SecurityJWT.JWT.Key)
-
-	for _, db := range config.Databases {
-		fmt.Printf("databases User: %s, Password: %s, Host: %s, Port: %d, Name: %s\n", db.User, db.Password, db.Host, db.Port, db.Name)
-	}
-}
+// 	for _, db := range(config.Databases) {
+// 		fmt.Printf("databases User: %s, password: %s, host: %s\n", db.User, db.Password, db.Host)
+// 	}
+// }

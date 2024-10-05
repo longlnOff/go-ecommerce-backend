@@ -1,9 +1,15 @@
 package setting
 
+
 type Config struct {
-	Sever ServerSetting `mapstructure:"server"`
+	Server ServerSetting `mapstructure:"server"`
+	Databases []struct {
+		User string `mapstructure:"user"`
+		Password string `mapstructure:"password"`
+		Host	string `mapstructure:"host"`
+	} `mapstructure:"databases"`
 	MySQL MySQLSetting `mapstructure:"mysql"`
-	Logger LoggerSetting `mapstructure:"logger"`
+	Logger LogSetting `mapstructure:"logger"`
 	Redis RedisSetting `mapstructure:"redis"`
 }
 
@@ -12,29 +18,33 @@ type ServerSetting struct {
 	Mode string `mapstructure:"mode"`
 }
 
-type MySQLSetting struct {
-	Host string `mapstructure:"host"`
-	Port int `mapstructure:"port"`
-	Username string `mapstructure:"username"`
-	Password string `mapstructure:"password"`
-	DbName string `mapstructure:"dbname"`
-	MaxIdleConns int `mapstructure:"maxIdleConns"`
-	MaxOpenConns int `mapstructure:"maxOpenConns"`
-	ConnMaxLifetime int `mapstructure:"connMaxLifetime"`
-}
 
-type LoggerSetting struct {
-	LogLevel string `mapstructure:"logLevel"`
-	FileLogName string `mapstructure:"fileLogName"`
-	MaxSize int `mapstructure:"maxSize"`
-	MaxBackups int `mapstructure:"maxBackups"`
-	MaxAge int `mapstructure:"maxAge"`
-	Compress bool `mapstructure:"compress"`
-}
 
 type RedisSetting struct {
 	Host string `mapstructure:"host"`
 	Port int `mapstructure:"port"`
 	Password string `mapstructure:"password"`
-	Database int `mapstructure:"database"`
+	Db int `mapstructure:"db"`
+	PoolSize int `mapstructure:"pool_size"`
+}
+
+
+type MySQLSetting struct {
+	Host string `mapstructure:"host"`
+	Port int `mapstructure:"port"`
+	Username string `mapstructure:"username"`
+	Password string `mapstructure:"password"`
+	Dbname string `mapstructure:"dbname"`
+	MaxIdleConns int `mapstructure:"maxIdleConns"`
+	MaxOpenConns int `mapstructure:"maxOpenConns"`
+	ConnMaxLifetime int `mapstructure:"connMaxLifetime"`
+}
+
+type LogSetting struct {
+	LogLevel string `mapstructure:"log_level"`
+	FileLogName string `mapstructure:"file_log_name"`
+	MaxSize int `mapstructure:"MaxSize"`
+	MaxBackups int `mapstructure:"MaxBackups"`
+	MaxAge int `mapstructure:"MaxAge"`
+	Compress bool `mapstructure:"Compress"`
 }

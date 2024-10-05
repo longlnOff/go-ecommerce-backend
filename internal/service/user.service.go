@@ -1,18 +1,18 @@
 package service
 
-import "github.com/longln/go-ecommerce-backend/internal/repo"
+import "github.com/longln/go-ecommerce-backend-api/internal/repo"
+
 
 type UserService struct {
-	userRepo *repo.UserRepo
+	userRepo repo.UserRepo
 }
 
 func NewUserService() *UserService {
 	return &UserService{
-		userRepo: repo.NewUserRepo(),
+		userRepo: *repo.NewUserRepo(),
 	}
 }
 
-// user servuce
-func (us *UserService) GetInforUserService() string {
-	return us.userRepo.GetInforUser()
+func (us *UserService) GetUserInfoService() string {
+	return us.userRepo.GetUserInfoRepo()
 }

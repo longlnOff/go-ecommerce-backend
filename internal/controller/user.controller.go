@@ -4,26 +4,27 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
-	"github.com/longln/go-ecommerce-backend/internal/service"
-	"github.com/longln/go-ecommerce-backend/pkg/response"
+	"github.com/longln/go-ecommerce-backend-api/internal/service"
+	"github.com/longln/go-ecommerce-backend-api/pkg/response"
 )
 
+
+
 type UserController struct {
-	userService *service.UserService
+	userService service.UserService
 }
+
 
 func NewUserController() *UserController {
 	return &UserController{
-		userService: service.NewUserService(),
+		userService: *service.NewUserService(),
 	}
 }
 
-func (uc *UserController) GetUserByID(c *gin.Context) {
-	// if err != nil {
-	fmt.Println("---> My Handler")
-	response.ErrorResponse(c, response.ErrCodeParamInvalid)
-	// }
-	// return response.SuccessResponse(c, response.ErrCodeSuccess, []string{"longln", "hello"})
+func (uc *UserController) GetUserInforController(c *gin.Context) {
+	fmt.Println("Handler")
+	data := uc.userService.GetUserInfoService()
+	response.SuccessResponse(c, 20001, data)
 }
 
-// Note: gin.H is a map string
+

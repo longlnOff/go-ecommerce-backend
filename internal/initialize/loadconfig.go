@@ -3,24 +3,28 @@ package initialize
 import (
 	"fmt"
 
-	"github.com/longln/go-ecommerce-backend/global"
+	"github.com/longln/go-ecommerce-backend-api/global"
 	"github.com/spf13/viper"
 )
 
 func LoadConfig() {
-	// load config
 	viper := viper.New()
-	viper.AddConfigPath("config/")	// path to config
-	viper.SetConfigName("local")			// file name
+
+	// set config path
+	viper.AddConfigPath("config")
+	// set config file name
+	viper.SetConfigName("local")
+	// set config file type
 	viper.SetConfigType("yaml")
 
-	// read configuration
+	// Find and read config file (must do)
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic(fmt.Errorf("failed to read configuration file %w", err))
+		panic("Can't find config file")
 	}
-
+	
+	// read config
 	if err := viper.Unmarshal(&global.Config); err != nil {
-		panic(fmt.Errorf("failed to read configuration file %w", err))
+		fmt.Printf("Unable to decode configuration %v", err)
 	}
 }

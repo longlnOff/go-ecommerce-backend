@@ -2,45 +2,52 @@ package main
 
 import (
 	"os"
-
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
 
 func main() {
+	// sugar log
+	sugar := zap.NewExample().Sugar()
+	sugar.Infof("Hello name: %s", "longln")		// same as fmt.Printf
+
+	// logger: key value
+	logger := zap.NewExample()
+	logger.Info("Hello", zap.String("name", "TipsGo"), zap.Int("age", 40))
+	// --> question: when use sugar log, when use logger?
+
+	//  3 types
+	// Example
+
+	// Development
+
+	// Production
+
+	// Custom log
 	encoder := getEncoderLog()
 	sync := getWriterSync()
 	core := zapcore.NewCore(encoder, sync, zapcore.InfoLevel)
-	logger := zap.New(core, zap.AddCaller())
+	loggerCustom := zap.New(core, zap.AddCaller())
 
-	logger.Info("Info log", zap.Int("line", 1))
-	logger.Error("Error log", zap.Int("line", 2))
+	loggerCustom.Info("Infor log", zap.Int("line", 1))
+	loggerCustom.Error("Error log", zap.Int("line", 2))
 
 }
 
+// format log
 func getEncoderLog() zapcore.Encoder {
-	encoderConfig := zap.NewProductionEncoderConfig()
+	encodeConfig := zap.NewProductionEncoderConfig()
+	encodeConfig.EncodeTime = zapcore.ISO8601TimeEncoder
+	encodeConfig.TimeKey = "time"
+	encodeConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
+	encodeConfig.EncodeCaller = zapcore.FullCallerEncoder
 
-	// time format  
-	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
-
-	// ts --> time
-	encoderConfig.TimeKey = "time"
-
-	// uppercase INFOR, nifor --> INFO
-	encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder
-
-	// print caller (trace)
-	encoderConfig.EncodeCaller = zapcore.ShortCallerEncoder
-
-	return zapcore.NewJSONEncoder(encoderConfig)
+	return zapcore.NewConsoleEncoder(encodeConfig)
 }
 
-// write log
 func getWriterSync() zapcore.WriteSyncer {
-	file, _ := os.OpenFile("./log/log.txt", os.O_CREATE | os.O_RDWR, os.ModePerm)
+	file, _ := os.OpenFile("./logs/log.txt", os.O_RDWR | os.O_APPEND, os.ModePerm)
 	syncFile := zapcore.AddSync(file)
-	// ad console to print
 	syncConsole := zapcore.AddSync(os.Stderr)
 
 	return zapcore.NewMultiWriteSyncer(syncConsole, syncFile)

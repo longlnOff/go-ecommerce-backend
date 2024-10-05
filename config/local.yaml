@@ -1,6 +1,6 @@
 server:
   port: 8080
-  mode: dev
+  mode: "dev"
 
 mysql:
   host: 127.0.0.1
@@ -8,20 +8,21 @@ mysql:
   username: root
   password: root1234
   dbname: shopdevgo
-  maxIdleConns: 10  # so luong ket noi toi da trong pool connection
-  maxOpenConns: 10 # so luong ket noi mo toi da trong pool connection, nen kiem soat cai nay, khong de mac dinh
-  connMaxLifeTime: 3600 # vong doi toi da cua 1 connection
+  maxIdleConns: 10
+  maxOpenConns: 100
+  connMaxLifetime: 3600   # 1 minute
 
 logger:
-  logLevel: debug
-  fileLogName: "./storages/logs/dev.001.txt"
-  maxSize: 500
-  maxBackups: 3
-  maxAge: 28
-  compress: true
+  log_level: debug
+  file_log_name: ./storages/logs/dev.001.log
+  MaxSize:    500     # megabytes
+  MaxBackups: 3
+  MaxAge:     28      # days
+  Compress:   true    # disabled by default
 
 redis:
   host: 127.0.0.1
   port: 6379
   password:
-  database: 0
+  db: 0
+  pool_size: 100

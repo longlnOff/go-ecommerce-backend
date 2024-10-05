@@ -6,25 +6,31 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+
 type ResponseData struct {
-	Code int 			`json:"code"`
-	Message string 		`json:"message"`
-	Data interface{}	`json:"data"`
+	Code int 		`json:"code"`
+	Message string 	`json:"message"`
+	Data any 		`json:"data"` 
 }
 
-// success response
-func SuccessResponse(c *gin.Context, code int, data interface{}){
-	c.JSON(http.StatusOK, ResponseData{
-		Code: code,
-		Message: msg[code],
-		Data: data,
-	})
+func SuccessResponse(c *gin.Context, code int, data any) {
+	c.JSON(
+		http.StatusOK,
+		ResponseData{
+			Code: code,
+			Message: Msg[code],
+			Data: data,
+		},
+	)
 }
 
-func ErrorResponse(c *gin.Context, code int){
-	c.JSON(http.StatusOK, ResponseData{
-		Code: code,
-		Message: msg[code],
-		Data: nil,
-	})
+func ErrorResponse(c *gin.Context, code int) {
+	c.JSON(
+		http.StatusInternalServerError,
+		ResponseData{
+			Code: code,
+			Message: Msg[code],
+			Data: nil,
+		},
+	)
 }

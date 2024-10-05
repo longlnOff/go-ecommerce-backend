@@ -1,14 +1,16 @@
 package response
 
+
+
 const (
-	ErrCodeSuccess		= 20000
-	ErrCodeParamInvalid	= 20003
-	ErrCodeTokenInvalid	= 20004
+	ErrCodeSuccess 			= 20001	
+	ErrCodeParamInvalid 	= 20003
+	ErrInvalidToken			= 30001
 )
 
-// message
-var msg = map[int]string {
+
+var Msg = map[int]string {
 	ErrCodeSuccess: "success",
 	ErrCodeParamInvalid: "email is invalid",
-	ErrCodeTokenInvalid: "token is invalid",
+	ErrInvalidToken: "token is invalid",
 }
