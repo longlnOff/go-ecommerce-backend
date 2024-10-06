@@ -17,3 +17,12 @@ main.main
 	/home/longln/SourceCode/github.com/longln/go-ecommerce-backend-api/cmd/server/main.go:8
 runtime.main
 	/usr/local/go/src/runtime/proc.go:272
+2024-10-06T21:37:46.275+0700	[31mERROR[0m	/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/internal/initialize/redis.go:27	Redis intialization Error	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+github.com/longln/go-ecommerce-backend-api/internal/initialize.InitRedis
+	/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/internal/initialize/redis.go:27
+github.com/longln/go-ecommerce-backend-api/internal/initialize.Run
+	/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/internal/initialize/run.go:12
+main.main
+	/home/longln/SourceCode/github.com/longln/go-ecommerce-backend/cmd/server/main.go:8
+runtime.main
+	/usr/local/go/src/runtime/proc.go:272

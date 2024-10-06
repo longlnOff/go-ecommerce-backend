@@ -1,18 +1,32 @@
 package service
 
-import "github.com/longln/go-ecommerce-backend-api/internal/repo"
+import (
+	"github.com/longln/go-ecommerce-backend-api/internal/repo"
+	"github.com/longln/go-ecommerce-backend-api/pkg/response"
+)
 
-
-type UserService struct {
-	userRepo repo.UserRepo
+// INTERFACE_VERSION
+// Chu y cach dat ten interface
+type IUserService interface {
+	Register(email string, purpose string) int
 }
 
-func NewUserService() *UserService {
-	return &UserService{
-		userRepo: *repo.NewUserRepo(),
+type userService struct {
+	userRepo *repo.IUserRepository
+}
+
+// Register implements IUserService.
+func (us *userService) Register(email string, purpose string) int {
+
+	// check email exists
+	if us.userRepo.GetUserByEmail(email) {
+		
 	}
+	return response.ErrCodeSuccess
 }
 
-func (us *UserService) GetUserInfoService() string {
-	return us.userRepo.GetUserInfoRepo()
+func NewUserService(userRepo repo.IUserRepository) IUserService {
+	return &userService{
+		userRepo: &userRepo,
+	}
 }
