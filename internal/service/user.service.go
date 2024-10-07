@@ -17,6 +17,21 @@ type userService struct {
 
 // Register implements IUserService.
 func (us *userService) Register(email string, purpose string) int {
+	// use redis to send OTP because it's faster than mongoDB
+
+	// 0. hashEmail --> to protect information
+
+	// check OTP is available
+
+	// handle user spam
+
+	// 1. check email exists in db
+
+	// 2. new OTP
+
+	// 3. Save OTP in Redis with expiration time
+
+	// 4. Send email
 
 	// check email exists
 	if us.userRepo.GetUserByEmail(email) {

@@ -16,13 +16,13 @@ func (pr *ManagerRouter) InitUserManagerRouter(r *gin.RouterGroup) {
 
 
 	// private
-	managerRouterPrivate := r.Group("/admin/user")
+	// managerRouterPrivate := r.Group("/admin/user")
 
 	// userRouterPrivate.Use(Limiter())				// rate miter
 	// userRouterPrivate.Use(Authentication())			// use jwt
 	// userRouterPrivate.Use(Permission())				// similar to authorization
 	{
-		managerRouterPrivate.POST("/active_user")
+		// managerRouterPrivate.POST("/active_user")
 
 	}
 }

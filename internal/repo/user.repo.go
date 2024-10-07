@@ -1,5 +1,12 @@
 package repo
 
+import (
+	"context"
+
+	"github.com/longln/go-ecommerce-backend-api/global"
+	"github.com/longln/go-ecommerce-backend-api/internal/database"
+)
+
 // type UserRepo struct {
 
 // }
@@ -17,13 +24,20 @@ type IUserRepository interface {
 }
 
 type userRepository struct {
+	sqlc *database.Queries
 }
 
 // GetUserByEmail implements IUserRepository.
 func (ur *userRepository) GetUserByEmail(email string) bool {
-	return true
+	user, err := ur.sqlc.GetUserByEmailSQLC(context.Background(), email)
+	if err != nil {
+		return false
+	}
+	return user.UsrID != 0
 }
 
 func NewUserRepository() IUserRepository {
-	return &userRepository{}
+	return &userRepository{
+		sqlc: database.New(global.Mdbc),
+	}
 }

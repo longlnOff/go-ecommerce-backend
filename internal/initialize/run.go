@@ -10,7 +10,9 @@ func Run() {
 	InitMySQL()
 	// 4. Connect Redis
 	InitRedis()
-	// 5. Connect Router
+	// 5. Init Kafka
+
+	// 6. Connect Router
 	r := InitRouter()
 	r.Run()
 }
