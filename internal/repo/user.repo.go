@@ -24,6 +24,6 @@ func (ur *userRepository) GetUserByEmail(email string) bool {
 	return true
 }
 
-func NewUserRepo() IUserRepository {
+func NewUserRepository() IUserRepository {
 	return &userRepository{}
 }

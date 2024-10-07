@@ -1,8 +1,6 @@
 package controller
 
 import (
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 	"github.com/longln/go-ecommerce-backend-api/internal/service"
 	"github.com/longln/go-ecommerce-backend-api/pkg/response"
@@ -11,20 +9,20 @@ import (
 
 
 type UserController struct {
-	userService service.UserService
+	userService service.IUserService
 }
 
 
-func NewUserController() *UserController {
+func NewUserController(userService service.IUserService) *UserController {
 	return &UserController{
-		userService: *service.NewUserService(),
+		userService: userService,
 	}
 }
 
 func (uc *UserController) GetUserInforController(c *gin.Context) {
-	fmt.Println("Handler")
-	data := uc.userService.GetUserInfoService()
-	response.SuccessResponse(c, 20001, data)
+	code := uc.userService.Register("", "")
+	response.SuccessResponse(c, code, nil)
 }
+
 
 
