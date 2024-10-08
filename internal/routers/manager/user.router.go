@@ -18,7 +18,7 @@ func (pr *UserRouter) InitUserRouter(r *gin.RouterGroup) {
 
 
 	// private
-	userRouterPrivate := r.Group("/admin/user")
+	userRouterPrivate := r.Group("/admin/user/private")
 
 	// userRouterPrivate.Use(Limiter())				// rate miter
 	// userRouterPrivate.Use(Authentication())			// use jwt

@@ -8,7 +8,7 @@ run:
 	go run ./cmd/${APP_NAME}/main.go
 
 dockerup:
-	docker-compose up -d
+	docker-compose up --build
 
 dockerkill:
 	docker-compose kill
