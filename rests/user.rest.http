@@ -1,8 +1,9 @@
 @baseUrl=http://localhost:8002/v1/2024
 
 # User Registration
-POST {{baseUrl}} /user/register
-Content-Type: application/json
+POST {{baseUrl}}/user/register
+Content-type: application/json
+
 {
     "email": "longlnofficial@gmail.com",
     "purpose": "test"

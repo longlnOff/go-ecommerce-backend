@@ -14,4 +14,6 @@ COPY ./config /config
 
 COPY --from=builder /build/crm.shopdev.com /
 
+COPY ./templates-email /templates-email
+
 ENTRYPOINT [ "/crm.shopdev.com", "/config/local.yaml" ]
